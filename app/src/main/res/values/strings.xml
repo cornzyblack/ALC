@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Alc</string>
+    <string name="username">Github Username: </string>
+    <string name="profile_url">Github Profile URL: </string>
+</resources>
