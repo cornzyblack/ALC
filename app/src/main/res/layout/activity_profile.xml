@@ -32,11 +32,12 @@
                 tools:text="@string/username" />
 
             <TextView
+                android:id="@+id/profile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="16sp"
-                tools:text="\@cornzyblack" />
+                android:text="\@cornzyblack"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -49,30 +50,30 @@
             android:paddingRight="16dp"
             android:paddingTop="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            tools:text="@string/profile_url" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:text="@string/profile_url" />
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:id="@+id/github_url"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:text="https://www.github.com/androidddddddddddddddddd"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif-medium"
-            android:maxLines="1"
-            android:textSize="16sp"
-            tools:text="https://www.github.com/androidddddddddddddddddd" />
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:text="Share" />
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Share"
-        android:layout_margin="16dp"
-        android:layout_gravity="center_horizontal"
-        />
 </LinearLayout>
-
-    </LinearLayout>

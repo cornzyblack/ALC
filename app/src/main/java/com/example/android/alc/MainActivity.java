@@ -2,9 +2,12 @@ package com.example.android.alc;
 
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -29,6 +32,23 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
         ListView usersListView = (ListView) findViewById(R.id.listview_users);
         usersListView.setAdapter(mAdapter);
+
+        usersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Find the current earthquake that was clicked on
+                User currentUser = mAdapter.getItem(position);
+
+
+                // Create a new intent that will contain information that be passed to the Profile Activity Class
+                Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+                profileIntent.putExtra("username", currentUser.getUsername());
+                profileIntent.putExtra("githubUrl", currentUser.getGithubProfileUrl());
+
+                // Send the intent to launch a new activity
+                startActivity(profileIntent);
+            }
+        });
 
         // Get a reference to the LoaderManager, in order to interact with loaders.
         LoaderManager loaderManager = getLoaderManager();
