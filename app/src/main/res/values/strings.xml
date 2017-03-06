@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Alc</string>
     <string name="username">Github Username: </string>
-    <string name="profile_url">Github Profile URL: </string>
+    <string name="profile_name">User Profile: </string>
+    <string name="profile_url_text">Github Profile URL: </string>
+    <string name="share_button">Share</string>
 </resources>

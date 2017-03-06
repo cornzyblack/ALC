@@ -86,6 +86,7 @@ public class QueryUtils {
         }
         return output.toString();
     }
+
     public static List<User> fetchUserData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
@@ -132,6 +133,7 @@ public class QueryUtils {
                 //Get the Github URL for the User
                 String githubUrl = currentUser.getString("html_url");
                 //Create a User Object with the properties
+
                 User user = new User(avatarURL, login, githubUrl);
 
                 //add the User Object the to List of Users

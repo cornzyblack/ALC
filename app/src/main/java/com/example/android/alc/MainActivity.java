@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Create a new adapter that takes an empty list of earthquakes as input
+        // Create a new adapter that takes an empty list of users as input
         mAdapter = new UsersAdapter(this, new ArrayList<User>());
 
         ListView usersListView = (ListView) findViewById(R.id.listview_users);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         usersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Find the current earthquake that was clicked on
+                // Find the current User that was clicked on
                 User currentUser = mAdapter.getItem(position);
 
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
                 Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
                 profileIntent.putExtra("username", currentUser.getUsername());
                 profileIntent.putExtra("githubUrl", currentUser.getGithubProfileUrl());
-
+                profileIntent.putExtra("userProfilePictureUrl", currentUser.getProfilePicture());
                 // Send the intent to launch a new activity
                 startActivity(profileIntent);
             }

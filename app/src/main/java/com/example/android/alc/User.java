@@ -22,6 +22,7 @@ public class User {
         this.mProfilePicture = profilePicture;
         this.mUsername = username;
         this.mGithubProfileUrl = githubProfileUrl;
+
     }
 
     /**
@@ -35,7 +36,7 @@ public class User {
      * @return the Username for the Github Profile
      */
     public String getUsername() {
-        return "@" + mUsername;
+        return mUsername;
     }
 
     /**
