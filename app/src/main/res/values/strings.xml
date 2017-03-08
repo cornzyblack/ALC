@@ -4,4 +4,5 @@
     <string name="profile_name">User Profile: </string>
     <string name="profile_url_text">Github Profile URL: </string>
     <string name="share_button">Share</string>
+    <string name="no_github_users">No Github Java User found in Lagos.</string>
 </resources>

@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<List<User>> {
-
+    private TextView mEmptyStateTextView;
     private final static String GITHUB_API_URL = "https://api.github.com/search/users?q=location:lagos+language:java&per_page=100";
     private UsersAdapter mAdapter;
     private static final int USER_LOADER_ID = 1;
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
         ListView usersListView = (ListView) findViewById(R.id.listview_users);
         usersListView.setAdapter(mAdapter);
+        mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
+        usersListView.setEmptyView(mEmptyStateTextView);
+
 
         usersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -67,7 +71,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     @Override
     public void onLoadFinished(Loader<List<User>> loader, List<User> users) {
+        mEmptyStateTextView.setText(R.string.no_github_users);
         // Clear the adapter of previous User data
+
         mAdapter.clear();
 
         // If there is a valid list of {@link user}s, then add them to the adapter's
