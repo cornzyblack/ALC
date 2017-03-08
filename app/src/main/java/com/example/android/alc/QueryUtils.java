@@ -105,7 +105,6 @@ public class QueryUtils {
         // Return the list of {@link User}s
         return users;
     }
-
     private static List<User> extractDetailFromJson(String userJson) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(userJson)) {
@@ -118,6 +117,9 @@ public class QueryUtils {
         try {
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(userJson);
+            //Get Total Count
+            int totalCount = baseJsonResponse.getInt("total_count");
+
 
             JSONArray usersArray = baseJsonResponse.getJSONArray("items");
             // For each User in the usersArray, create an {@link User} object
