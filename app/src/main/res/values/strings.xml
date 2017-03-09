@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Alc</string>
+    <string name="app_name">Java Devs in Lagos</string>
     <string name="username">Github Username: </string>
-    <string name="profile_name">User Profile: </string>
+    <string name="profile_name">Github User Profile</string>
     <string name="profile_url_text">Github Profile URL: </string>
     <string name="share_button">Share</string>
     <string name="no_github_users">No Github Java User found in Lagos.</string>

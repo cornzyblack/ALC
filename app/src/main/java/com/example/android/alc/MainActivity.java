@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<List<User>> {
     private TextView mEmptyStateTextView;
-    private final static String GITHUB_API_URL = "https://api.github.com/search/users?q=location:lagos+language:java";
+    private final static String GITHUB_API_URL = "https://api.github.com/search/users?q=location:lagos+language:java&per_page=100";
     private UsersAdapter mAdapter;
     private static final int USER_LOADER_ID = 1;
 
@@ -60,24 +60,24 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
-// Get details on the currently active default data network
+        // Get details on the currently active default data network
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-// If there is a network connection, fetch data
+        // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
-// Get a reference to the LoaderManager, in order to interact with loaders.
+            // Get a reference to the LoaderManager, in order to interact with loaders.
             LoaderManager loaderManager = getLoaderManager();
 
-// Initialize the loader. Pass in the int ID constant defined above and pass in null for
-// the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
-// because this activity implements the LoaderCallbacks interface).
+            // Initialize the loader. Pass in the int ID constant defined above and pass in null for
+            // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
+            // because this activity implements the LoaderCallbacks interface).
             loaderManager.initLoader(USER_LOADER_ID, null, this);
         } else {
-// Otherwise, display error
-// First, hide loading indicator so error message will be visible
+            // Otherwise, display error
+            // First, hide loading indicator so error message will be visible
             View loadingIndicator = findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
 
-// Update empty state with no connection error message
+            // Update empty state with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
     }
