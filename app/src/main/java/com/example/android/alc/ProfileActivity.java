@@ -3,9 +3,9 @@ package com.example.android.alc;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
         final ImageView userProfilePicture = (ImageView) findViewById(R.id.user_profile_picture);
         Picasso.with(this).load(profilePictureUrlValue).into(userProfilePicture);
 
-        Button shareButton = (Button) findViewById(R.id.share);
+        FloatingActionButton shareButton = (FloatingActionButton) findViewById(R.id.share);
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
